@@ -65,10 +65,10 @@ public class Gameplay : MonoBehaviour {
         EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
         LocationCurrentName = Locations[LocationCurrentID];
 
-        TextTime.text = string.Concat("Time: ", TimeCurrent);
-        TextEnergy.text = string.Concat("Energy: ", EnergyCurrent);
-        TextConnectedness.text = string.Concat("Connectedness: ", ConnectednessCurrent);
-        TextLocation.text = LocationCurrentName;
+        TextTime.text = string.Format("Time: {0:0}", TimeCurrent);
+        TextEnergy.text = string.Format("Energy: {0:0}", EnergyCurrent);
+        TextConnectedness.text = string.Format("Connectedness: {0:0}", ConnectednessCurrent);
+        TextLocation.text = string.Format("Location: {0}", LocationCurrentName);
 
         // probably very expensive but who cares
         LocationCurrentName = Locations[LocationCurrentID];
