@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour {
 
-    public float TimeCurrent;
+    public float MoneyCurrent;
 
     public float EnergyMin;
     public float EnergyCurrent;
@@ -21,7 +21,7 @@ public class Gameplay : MonoBehaviour {
 
     public GameObject PrefabBar;
 
-    public Text TextTime;
+    public Text TextMoney;
     public Text TextEnergy;
     public Text TextConnectedness;
     public Text TextLocation;
@@ -62,14 +62,13 @@ public class Gameplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TimeCurrent += Time.deltaTime;
         EnergyCurrent += Time.deltaTime * EnergyRefillPerSecond;
         EnergyCurrent = Mathf.Min(EnergyCurrent, EnergyMax);
         EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
         EnergyBar.value = EnergyCurrent;
         LocationCurrentName = Locations[LocationCurrentID];
 
-        TextTime.text = string.Format("Time: {0:0}", TimeCurrent);
+        TextMoney.text = string.Format("Money: {0:0}", MoneyCurrent);
         TextEnergy.text = string.Format("Energy: {0:0}", EnergyCurrent);
         TextConnectedness.text = string.Format("Connectedness: {0:0}", ConnectednessCurrent);
         TextLocation.text = string.Format("Location: {0}", LocationCurrentName);
@@ -95,6 +94,10 @@ public class Gameplay : MonoBehaviour {
 
     public void IncreaseConnectedness(float v) {
         ConnectednessCurrent += v;
+    }
+
+    public void IncreaseMoney (float v) {
+        MoneyCurrent += v;
     }
 
     public void DecreaseEnergy (float v) {

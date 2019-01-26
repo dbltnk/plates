@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 65025711}
   - component: {fileID: 65025710}
   m_Layer: 0
-  m_Name: Time
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7199c43d8da2e7f498c1cdfb1119d9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeCurrent: 0
+  MoneyCurrent: 5000
   EnergyMin: 0
   EnergyCurrent: 100
   EnergyMax: 100
@@ -616,7 +616,7 @@ MonoBehaviour:
   LocationCurrentID: 0
   LocationCurrentName: 
   PrefabBar: {fileID: 1413071691484558, guid: 5361edf3d07dc4a45b3f20869e6f4f8b, type: 2}
-  TextTime: {fileID: 65025710}
+  TextMoney: {fileID: 65025710}
   TextEnergy: {fileID: 1539757263}
   TextConnectedness: {fileID: 866496303}
   TextLocation: {fileID: 439012582}
