@@ -43,23 +43,29 @@ public class Gameplay : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Locations.Add(0, "Hometown");
-        Locations.Add(1, "Home Country");
-        Locations.Add(2, "New Home");
-        Locations.Add(3, "Work");
-        Locations.Add(4, "Socialising");
-        
-
         EnergyCosts.Add(0, 5);
-        EnergyCosts.Add(1, 10);
-        EnergyCosts.Add(2, 20);
-
         MoneyCosts.Add(0, 1000);
-        MoneyCosts.Add(1, 10);
-        MoneyCosts.Add(2, 0);
-
         Actions.Add(0, "Fly");
-        Actions.Add(1, "Hang Out");
-        Actions.Add(2, "Work");
+
+        Locations.Add(1, "Home Country");
+        EnergyCosts.Add(1, 5);
+        MoneyCosts.Add(1, 100);
+        Actions.Add(1, "Visit");
+
+        Locations.Add(2, "New Home");
+        EnergyCosts.Add(2, 10);
+        MoneyCosts.Add(2, 20);
+        Actions.Add(2, "Call");
+
+        Locations.Add(3, "Work");
+        EnergyCosts.Add(3, 20);
+        MoneyCosts.Add(3, 0);
+        Actions.Add(3, "Work");
+
+        Locations.Add(4, "Socialising");
+        EnergyCosts.Add(4, 25);
+        MoneyCosts.Add(4, 50);
+        Actions.Add(4, "Dance");
 
         foreach (KeyValuePair<int, string> e in Locations) {
             GameObject o = Instantiate(PrefabBar);
@@ -111,7 +117,7 @@ public class Gameplay : MonoBehaviour {
         ConnectednessCurrent -= ConnectednessDecayPerSecond * Time.deltaTime;
         ConnectednessCurrent = Mathf.Max(ConnectednessCurrent, 0);
 
-        if (LocationCurrentID == 2) {
+        if (LocationCurrentID == 3) {
             MoneyCurrent += MoneyGainPerSecond * Time.deltaTime;
         };
     }
