@@ -26,14 +26,24 @@ public class Gameplay : MonoBehaviour {
 
     public Bar CurrentBar;
 
+    public float BarDistance;
+
     // Use this for initialization
     void Start () {
-        Locations.Add(-1, "Munich");
-        Locations.Add(0, "Apartment");
-        Locations.Add(1, "Work");
-        LocationCurrentID = 0;
+        Locations.Add(0, "Munich");
+        Locations.Add(1, "Apartment");
+        Locations.Add(2, "Work");
+
+        foreach (KeyValuePair<int, string> e in Locations) {
+            GameObject o = Instantiate(PrefabBar);
+            o.transform.localPosition = new Vector3(e.Key * BarDistance - BarDistance, 0f, 0f);
+            o.GetComponent<Bar>().BarName = e.Value;
+            o.name = e.Value;
+        }
+
+        LocationCurrentID = 1;
         LocationCurrentName = Locations[LocationCurrentID];
-        GameObject barObject = Instantiate(PrefabBar);
+        GameObject barObject = GameObject.Find(LocationCurrentName);
         Bar bar = barObject.GetComponent<Bar>();
         bar.BarName = LocationCurrentName;
         CurrentBar = bar;
@@ -50,6 +60,13 @@ public class Gameplay : MonoBehaviour {
         TextTime.text = string.Concat("Time: ", TimeCurrent);
         TextEnergy.text = string.Concat("Energy: ", EnergyCurrent);
         TextConnectedness.text = string.Concat("Connectedness: ", ConnectednessCurrent);
+
+        // probably very expensive but who cares
+        LocationCurrentName = Locations[LocationCurrentID];
+        GameObject barObject = GameObject.Find(LocationCurrentName);
+        Bar bar = barObject.GetComponent<Bar>();
+        bar.BarName = LocationCurrentName;
+        CurrentBar = bar;
     }
 
     public void IncreaseConnectedness(float v) {
@@ -60,5 +77,13 @@ public class Gameplay : MonoBehaviour {
         EnergyCurrent -= v;
         EnergyCurrent = Mathf.Min(EnergyCurrent, EnergyMax);
         EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
+    }
+
+    public void ChangeLocation (int direction) {
+        int target = LocationCurrentID + direction;
+        if (target >= 0 && target <= Locations.Count - 1 ) {
+            LocationCurrentID += direction;
+            LocationCurrentName = Locations[LocationCurrentID];
+        }
     }
 }
