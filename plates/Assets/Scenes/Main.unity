@@ -1720,7 +1720,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap me
+  m_Text: Interact
 --- !u!222 &1363214925
 CanvasRenderer:
   m_ObjectHideFlags: 0
