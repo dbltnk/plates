@@ -19,6 +19,9 @@ public class Bar : MonoBehaviour {
     public float IncreasePerTap;
     public GameObject ObjectCurrent;
     public float EnergyTapCost;
+    public GameObject ObjectHotspot;
+    public float hotspotRange;
+    public float hotspotCenter;
 
     // https://forum.unity.com/threads/re-map-a-number-from-one-range-to-another.119437/
     float MapIntoRange (float s, float a1, float a2, float b1, float b2) {
@@ -36,6 +39,8 @@ public class Bar : MonoBehaviour {
         Current -= Time.deltaTime * DecayPerSecond;
         Current = Mathf.Min(Current, Max);
         Current = Mathf.Max(Current, Min);
+
+        if (HotspotTop <= HotspotBottom) Debug.LogError("HotspotTop has to be larger than HotspotBottom.");
 
         if (Current <= HotspotTop && Current >= HotspotBottom) {
             IsOnHotspot = true;
@@ -56,6 +61,16 @@ public class Bar : MonoBehaviour {
         // y for 1 -> 4.47
         float currentY = MapIntoRange(Current, Min, Max, -2.36f, 4.47f);
         ObjectCurrent.transform.localPosition = new Vector3(0.02f, currentY, -1.18f);
+
+        // we do this math on update just so we can change this on runtime, maybe a bit slow but who cares
+        hotspotRange = HotspotTop - HotspotBottom;
+        hotspotCenter = HotspotTop - hotspotRange / 2f;
+
+        float hotspotY = MapIntoRange(hotspotCenter, Min, Max, -2.36f, 4.47f);
+        ObjectHotspot.transform.localPosition = new Vector3(0f, hotspotY, -0.96f);
+
+        float hotspotHeight = MapIntoRange(hotspotRange, Min, Max, 0, 7f);
+        ObjectHotspot.transform.localScale = new Vector3(1f, hotspotHeight, 0.3612825f);
     }
 
     public void IncreaseCurrent() {
