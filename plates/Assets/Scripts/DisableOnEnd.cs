@@ -3,36 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisableOnMove : MonoBehaviour {
+public class DisableOnEnd : MonoBehaviour {
 
     GameObject gameplayRoot;
     Gameplay gp;
     Button button;
-    DisableOnEnd dOE;
+    public bool IsLeft;
+    public bool DisableMe;
 
     // Use this for initialization
     void Start () {
         gameplayRoot = GameObject.Find("GameplayRoot");
         gp = gameplayRoot.GetComponent<Gameplay>();
         button = GetComponent<Button>();
-        dOE = GetComponent<DisableOnEnd>();
     }
 
     // Update is called once per frame
     void Update () {
         if (gp != null) {
-            if (gp.CameraIsMoving) {
-                button.interactable = false;
+            if ((gp.LocationCurrentID <= 0 && IsLeft) || (gp.LocationCurrentID >= gp.Locations.Count -1 && !IsLeft)) {
+                DisableMe = true;
             } else {
-                button.interactable = true;
-            }
-        }
-
-        if (gp != null && dOE != null) {
-            if (dOE.DisableMe && gp.CameraIsMoving == false) {
-                button.interactable = false;
-            } else {
-                button.interactable = true;
+                DisableMe = false;
             }
         }
     }
