@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gameplay : MonoBehaviour {
 
     public float TimeCurrent;
-    public float TimeEnd;
 
     public float EnergyMin;
     public float EnergyCurrent;
@@ -38,6 +37,10 @@ public class Gameplay : MonoBehaviour {
         EnergyCurrent += Time.deltaTime * EnergyRefillPerSecond;
         EnergyCurrent = Mathf.Min(EnergyCurrent, EnergyMax);
         EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
-        LocationCurrentName = Locations[LocationCurrentID];    
+        LocationCurrentName = Locations[LocationCurrentID];
+    }
+
+    public void IncreaseConnectedness(float v) {
+        ConnectednessCurrent += v;
     }
 }

@@ -207,7 +207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeCurrent: 0
-  TimeEnd: 60
   EnergyMin: 0
   EnergyCurrent: 50
   EnergyMax: 100

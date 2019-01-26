@@ -9,18 +9,18 @@ public class Bar : MonoBehaviour {
     public float Current;
     public float Max;
     public float DecayPerSecond;
-    public float Hotspot;
-    public Gameplay Gp;
-    public bool IsOnHotSpot;
-    public bool IsOverHotSpot;
-    public bool IsUnderHotSpot;
-    public float HotSpotToTop;
-    public float HotSpotToBottom;
+    GameObject gameplayRoot;
+    Gameplay gp;
+    public float HotspotTop;
+    public float HotspotBottom;
+    public bool IsOnHotspot;
+    public float ConnectednessPerSecondNormal;
+    public float ConnectednessPerSecondHotspot;
 
     // Use this for initialization
     void Start () {
-        HotSpotToTop = Max - Hotspot;
-        HotSpotToBottom = Min + Hotspot;
+        gameplayRoot = GameObject.Find("GameplayRoot");
+        gp = gameplayRoot.GetComponent<Gameplay>();
     }
 	
 	// Update is called once per frame
@@ -29,26 +29,19 @@ public class Bar : MonoBehaviour {
         Current = Mathf.Min(Current, Max);
         Current = Mathf.Max(Current, Min);
 
-        if (Current == Hotspot) {
-            IsOnHotSpot = true;
+        if (Current <= HotspotTop && Current >= HotspotBottom) {
+            IsOnHotspot = true;
         }
         else {
-            IsOnHotSpot = false;
+            IsOnHotspot = false;
         }
 
-        if (Current > Hotspot) {
-            IsOverHotSpot = true;
-        } else {
-            IsOverHotSpot = false;
+        if (gp != null) {
+            if (IsOnHotspot) {
+                gp.IncreaseConnectedness(ConnectednessPerSecondHotspot * Time.deltaTime);
+            } else {
+                gp.IncreaseConnectedness(ConnectednessPerSecondNormal * Time.deltaTime);
+            }
         }
-
-        if (Current < Hotspot) {
-            IsUnderHotSpot = true;
-        } else {
-            IsUnderHotSpot = false;
-        }
-
-        // TODO: CALCULATE HOW MUCH POINTS YOU GET DEPENDING ON HOW FAR AWAY YOUR ARE
-
     }
 }
