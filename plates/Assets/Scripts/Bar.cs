@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bar : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class Bar : MonoBehaviour {
     public GameObject ObjectHotspot;
     public float hotspotRange;
     public float hotspotCenter;
+    public Text TextName;
 
     // https://forum.unity.com/threads/re-map-a-number-from-one-range-to-another.119437/
     float MapIntoRange (float s, float a1, float a2, float b1, float b2) {
@@ -71,6 +73,8 @@ public class Bar : MonoBehaviour {
 
         float hotspotHeight = MapIntoRange(hotspotRange, Min, Max, 0, 7f);
         ObjectHotspot.transform.localScale = new Vector3(1f, hotspotHeight, 0.3612825f);
+
+        TextName.text = BarName;
     }
 
     public void IncreaseCurrent() {
