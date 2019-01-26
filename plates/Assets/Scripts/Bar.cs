@@ -19,7 +19,6 @@ public class Bar : MonoBehaviour {
     public float ConnectednessPerSecondHotspot;
     public float IncreasePerTap;
     public GameObject ObjectCurrent;
-    public float EnergyTapCost;
     public GameObject ObjectHotspot;
     public float hotspotRange;
     public float hotspotCenter;
@@ -75,9 +74,11 @@ public class Bar : MonoBehaviour {
     }
 
     public void IncreaseCurrent() {
-        if (gp.EnergyCurrent > EnergyTapCost) {
+        if (gp.EnergyCurrent > gp.EnergyCosts[gp.LocationCurrentID] &&
+            gp.MoneyCurrent > gp.MoneyCosts[gp.LocationCurrentID]) {
             Current += IncreasePerTap;
-            gp.DecreaseEnergy(EnergyTapCost);
+            gp.DecreaseEnergy(gp.EnergyCosts[gp.LocationCurrentID]);
+            gp.IncreaseMoney(gp.MoneyCosts[gp.LocationCurrentID] * -1);
         }
     }
 }

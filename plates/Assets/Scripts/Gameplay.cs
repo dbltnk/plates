@@ -18,6 +18,9 @@ public class Gameplay : MonoBehaviour {
     public Dictionary<int, string> Locations = new Dictionary<int, string>();
     public int LocationCurrentID;
     public string LocationCurrentName;
+    public Dictionary<int, float> EnergyCosts = new Dictionary<int, float>();
+    public Dictionary<int, float> MoneyCosts = new Dictionary<int, float>();
+    public Dictionary<int, string> Actions = new Dictionary<int, string>();
 
     public GameObject PrefabBar;
 
@@ -45,6 +48,18 @@ public class Gameplay : MonoBehaviour {
         Locations.Add(3, "Work");
         Locations.Add(4, "Socialising");
         
+
+        EnergyCosts.Add(0, 5);
+        EnergyCosts.Add(1, 10);
+        EnergyCosts.Add(2, 20);
+
+        MoneyCosts.Add(0, 1000);
+        MoneyCosts.Add(1, 10);
+        MoneyCosts.Add(2, 0);
+
+        Actions.Add(0, "Fly");
+        Actions.Add(1, "Hang Out");
+        Actions.Add(2, "Work");
 
         foreach (KeyValuePair<int, string> e in Locations) {
             GameObject o = Instantiate(PrefabBar);
