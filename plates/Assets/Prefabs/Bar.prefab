@@ -342,7 +342,7 @@ MonoBehaviour:
   Min: 0
   Current: 50
   Max: 100
-  DecayPerSecond: 0.5
+  DecayPerSecond: 2
   HotspotTop: 65
   HotspotBottom: 30
   IsOnHotspot: 0
