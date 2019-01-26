@@ -55,4 +55,10 @@ public class Gameplay : MonoBehaviour {
     public void IncreaseConnectedness(float v) {
         ConnectednessCurrent += v;
     }
+
+    public void DecreaseEnergy (float v) {
+        EnergyCurrent -= v;
+        EnergyCurrent = Mathf.Min(EnergyCurrent, EnergyMax);
+        EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
+    }
 }

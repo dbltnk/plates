@@ -264,3 +264,4 @@ MonoBehaviour:
   ConnectednessPerSecondHotspot: 5
   IncreasePerTap: 5
   ObjectCurrent: {fileID: 1749444867576790}
+  EnergyTapCost: 25

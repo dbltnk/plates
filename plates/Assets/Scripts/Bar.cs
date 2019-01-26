@@ -18,6 +18,7 @@ public class Bar : MonoBehaviour {
     public float ConnectednessPerSecondHotspot;
     public float IncreasePerTap;
     public GameObject ObjectCurrent;
+    public float EnergyTapCost;
 
     // https://forum.unity.com/threads/re-map-a-number-from-one-range-to-another.119437/
     float MapIntoRange (float s, float a1, float a2, float b1, float b2) {
@@ -58,6 +59,9 @@ public class Bar : MonoBehaviour {
     }
 
     public void IncreaseCurrent() {
-        Current += IncreasePerTap;
+        if (gp.EnergyCurrent > EnergyTapCost) {
+            Current += IncreasePerTap;
+            gp.DecreaseEnergy(EnergyTapCost);
+        }
     }
 }
