@@ -487,7 +487,10 @@ MonoBehaviour:
   TextEnergy: {fileID: 1539757263}
   TextConnectedness: {fileID: 866496303}
   CurrentBar: {fileID: 0}
-  BarDistance: 1.75
+  BarDistance: 4.5
+  CameraTarget: {x: 0, y: 0, z: 0}
+  Camera: {fileID: 534669902}
+  CameraIsMoving: 0
 --- !u!4 &378475231
 Transform:
   m_ObjectHideFlags: 0
@@ -840,6 +843,7 @@ GameObject:
   - component: {fileID: 609990695}
   - component: {fileID: 609990694}
   - component: {fileID: 609990693}
+  - component: {fileID: 609990697}
   m_Layer: 0
   m_Name: ButtonRight
   m_TagString: Untagged
@@ -971,6 +975,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609990691}
   m_CullTransparentMesh: 0
+--- !u!114 &609990697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609990691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ecbb9ed3bdb8d4d9e4b4fb92d135b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &735069033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1346,7 @@ GameObject:
   - component: {fileID: 1379675251}
   - component: {fileID: 1379675250}
   - component: {fileID: 1379675249}
+  - component: {fileID: 1379675253}
   m_Layer: 0
   m_Name: ButtonLeft
   m_TagString: Untagged
@@ -1462,6 +1478,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1379675247}
   m_CullTransparentMesh: 0
+--- !u!114 &1379675253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1379675247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ecbb9ed3bdb8d4d9e4b4fb92d135b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1539757261
 GameObject:
   m_ObjectHideFlags: 0

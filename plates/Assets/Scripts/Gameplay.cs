@@ -27,6 +27,9 @@ public class Gameplay : MonoBehaviour {
     public Bar CurrentBar;
 
     public float BarDistance;
+    public Vector3 CameraTarget;
+    public GameObject Camera;
+    public bool CameraIsMoving;
 
     // Use this for initialization
     void Start () {
@@ -47,6 +50,9 @@ public class Gameplay : MonoBehaviour {
         Bar bar = barObject.GetComponent<Bar>();
         bar.BarName = LocationCurrentName;
         CurrentBar = bar;
+
+        int target = LocationCurrentID;
+        CameraTarget = new Vector3(target * BarDistance - BarDistance, 1f, -10f);
     }
 	
 	// Update is called once per frame
@@ -67,6 +73,14 @@ public class Gameplay : MonoBehaviour {
         Bar bar = barObject.GetComponent<Bar>();
         bar.BarName = LocationCurrentName;
         CurrentBar = bar;
+
+        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CameraTarget, 0.1f);
+        if (Camera.transform.position != CameraTarget) {
+            CameraIsMoving = true;
+        }
+        else {
+            CameraIsMoving = false;
+        }
     }
 
     public void IncreaseConnectedness(float v) {
@@ -84,6 +98,7 @@ public class Gameplay : MonoBehaviour {
         if (target >= 0 && target <= Locations.Count - 1 ) {
             LocationCurrentID += direction;
             LocationCurrentName = Locations[LocationCurrentID];
+            CameraTarget = new Vector3(target * BarDistance - BarDistance, 1f, -10f);
         }
     }
 }
