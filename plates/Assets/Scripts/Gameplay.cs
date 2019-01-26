@@ -37,9 +37,12 @@ public class Gameplay : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Locations.Add(0, "Munich");
-        Locations.Add(1, "Apartment");
-        Locations.Add(2, "Work");
+        Locations.Add(0, "Hometown");
+        Locations.Add(1, "Home Country");
+        Locations.Add(2, "New Home");
+        Locations.Add(3, "Work");
+        Locations.Add(4, "Socialising");
+        
 
         foreach (KeyValuePair<int, string> e in Locations) {
             GameObject o = Instantiate(PrefabBar);
@@ -48,7 +51,7 @@ public class Gameplay : MonoBehaviour {
             o.name = e.Value;
         }
 
-        LocationCurrentID = 1;
+        LocationCurrentID = 2;
         LocationCurrentName = Locations[LocationCurrentID];
         GameObject barObject = GameObject.Find(LocationCurrentName);
         Bar bar = barObject.GetComponent<Bar>();
