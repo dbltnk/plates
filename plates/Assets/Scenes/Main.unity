@@ -478,7 +478,7 @@ MonoBehaviour:
   EnergyMin: 0
   EnergyCurrent: 100
   EnergyMax: 100
-  EnergyRefillPerSecond: 10
+  EnergyRefillPerSecond: 15
   ConnectednessCurrent: 0
   LocationCurrentID: 0
   LocationCurrentName: 
