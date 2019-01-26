@@ -13,6 +13,7 @@ public class Gameplay : MonoBehaviour {
     public float EnergyRefillPerSecond;
 
     public float ConnectednessCurrent;
+    public float ConnectednessDecayPerSecond;
 
     public Dictionary<int, string> Locations = new Dictionary<int, string>();
     public int LocationCurrentID;
@@ -87,6 +88,9 @@ public class Gameplay : MonoBehaviour {
         else {
             CameraIsMoving = false;
         }
+
+        ConnectednessCurrent -= ConnectednessDecayPerSecond * Time.deltaTime;
+        ConnectednessCurrent = Mathf.Max(ConnectednessCurrent, 0);
     }
 
     public void IncreaseConnectedness(float v) {
