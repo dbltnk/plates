@@ -612,7 +612,7 @@ MonoBehaviour:
   EnergyMax: 100
   EnergyRefillPerSecond: 15
   ConnectednessCurrent: 0
-  ConnectednessDecayPerSecond: 7
+  ConnectednessDecayPerSecond: 12
   LocationCurrentID: 0
   LocationCurrentName: 
   PrefabBar: {fileID: 1413071691484558, guid: 5361edf3d07dc4a45b3f20869e6f4f8b, type: 2}
