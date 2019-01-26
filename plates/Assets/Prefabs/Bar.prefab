@@ -346,7 +346,7 @@ MonoBehaviour:
   HotspotTop: 65
   HotspotBottom: 30
   IsOnHotspot: 0
-  ConnectednessPerSecondNormal: 1
+  ConnectednessPerSecondNormal: 0
   ConnectednessPerSecondHotspot: 5
   IncreasePerTap: 5
   ObjectCurrent: {fileID: 1749444867576790}
