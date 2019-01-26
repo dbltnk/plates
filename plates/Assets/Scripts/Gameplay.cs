@@ -26,6 +26,7 @@ public class Gameplay : MonoBehaviour {
     public Text TextLocation;
 
     public Bar CurrentBar;
+    public Slider EnergyBar;
 
     public float BarDistance;
     public Vector3 CameraTarget;
@@ -52,6 +53,7 @@ public class Gameplay : MonoBehaviour {
         Bar bar = barObject.GetComponent<Bar>();
         bar.BarName = LocationCurrentName;
         CurrentBar = bar;
+        EnergyBar.value = EnergyCurrent;
 
         int target = LocationCurrentID;
         CameraTarget = new Vector3(target * BarDistance - BarDistance, 1f, -10f);
@@ -63,6 +65,7 @@ public class Gameplay : MonoBehaviour {
         EnergyCurrent += Time.deltaTime * EnergyRefillPerSecond;
         EnergyCurrent = Mathf.Min(EnergyCurrent, EnergyMax);
         EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
+        EnergyBar.value = EnergyCurrent;
         LocationCurrentName = Locations[LocationCurrentID];
 
         TextTime.text = string.Concat("Time: ", TimeCurrent);
