@@ -35,6 +35,8 @@ public class Gameplay : MonoBehaviour {
     public bool CameraIsMoving;
     public float CameraTransitionDuration;
 
+    public float MoneyGainPerSecond;
+
     // Use this for initialization
     void Start () {
         Locations.Add(0, "Hometown");
@@ -93,6 +95,10 @@ public class Gameplay : MonoBehaviour {
 
         ConnectednessCurrent -= ConnectednessDecayPerSecond * Time.deltaTime;
         ConnectednessCurrent = Mathf.Max(ConnectednessCurrent, 0);
+
+        if (LocationCurrentID == 2) {
+            MoneyCurrent += MoneyGainPerSecond * Time.deltaTime;
+        };
     }
 
     public void IncreaseConnectedness(float v) {

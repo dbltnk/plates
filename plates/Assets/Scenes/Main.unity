@@ -627,6 +627,7 @@ MonoBehaviour:
   Camera: {fileID: 534669902}
   CameraIsMoving: 0
   CameraTransitionDuration: 3
+  MoneyGainPerSecond: 50
 --- !u!4 &378475231
 Transform:
   m_ObjectHideFlags: 0
