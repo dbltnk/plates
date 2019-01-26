@@ -61,7 +61,7 @@ public class Bar : MonoBehaviour {
         // y for 0 -> -2.36
         // y for 1 -> 4.47
         float currentY = MapIntoRange(Current, Min, Max, -2.36f, 4.47f);
-        ObjectCurrent.transform.localPosition = new Vector3(0.02f, currentY, -1.18f);
+        ObjectCurrent.transform.localPosition = new Vector3(0f, currentY, -1.18f);
 
         // we do this math on update just so we can change this on runtime, maybe a bit slow but who cares
         hotspotRange = HotspotTop - HotspotBottom;
