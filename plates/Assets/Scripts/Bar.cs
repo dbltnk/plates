@@ -16,6 +16,7 @@ public class Bar : MonoBehaviour {
     public bool IsOnHotspot;
     public float ConnectednessPerSecondNormal;
     public float ConnectednessPerSecondHotspot;
+    public float IncreasePerTap;
 
     // Use this for initialization
     void Start () {
@@ -43,5 +44,9 @@ public class Bar : MonoBehaviour {
                 gp.IncreaseConnectedness(ConnectednessPerSecondNormal * Time.deltaTime);
             }
         }
+    }
+
+    public void IncreaseCurrent() {
+        Current += IncreasePerTap;
     }
 }

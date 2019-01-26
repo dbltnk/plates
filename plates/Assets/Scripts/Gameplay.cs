@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour {
 
@@ -19,6 +20,12 @@ public class Gameplay : MonoBehaviour {
 
     public GameObject PrefabBar;
 
+    public Text TextTime;
+    public Text TextEnergy;
+    public Text TextConnectedness;
+
+    public Bar CurrentBar;
+
     // Use this for initialization
     void Start () {
         Locations.Add(-1, "Munich");
@@ -29,6 +36,7 @@ public class Gameplay : MonoBehaviour {
         GameObject barObject = Instantiate(PrefabBar);
         Bar bar = barObject.GetComponent<Bar>();
         bar.BarName = LocationCurrentName;
+        CurrentBar = bar;
     }
 	
 	// Update is called once per frame
@@ -38,6 +46,10 @@ public class Gameplay : MonoBehaviour {
         EnergyCurrent = Mathf.Min(EnergyCurrent, EnergyMax);
         EnergyCurrent = Mathf.Max(EnergyCurrent, EnergyMin);
         LocationCurrentName = Locations[LocationCurrentID];
+
+        TextTime.text = string.Concat("Time: ", TimeCurrent);
+        TextEnergy.text = string.Concat("Energy: ", EnergyCurrent);
+        TextConnectedness.text = string.Concat("Connectedness: ", ConnectednessCurrent);
     }
 
     public void IncreaseConnectedness(float v) {
