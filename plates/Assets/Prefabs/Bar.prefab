@@ -406,11 +406,10 @@ MonoBehaviour:
   ConnectednessPerSecondHotspot: 5
   IncreasePerTap: 5
   ObjectCurrent: {fileID: 1749444867576790}
-  EnergyTapCost: 25
+  EnergyTapCost: 15
   ObjectHotspot: {fileID: 1826118506466184}
   hotspotRange: 0
   hotspotCenter: 0
-  TextName: {fileID: 0}
 --- !u!223 &223120092355784924
 Canvas:
   m_ObjectHideFlags: 1

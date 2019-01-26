@@ -31,6 +31,7 @@ public class Gameplay : MonoBehaviour {
     public Vector3 CameraTarget;
     public GameObject Camera;
     public bool CameraIsMoving;
+    public float CameraTransitionDuration;
 
     // Use this for initialization
     void Start () {
@@ -76,7 +77,7 @@ public class Gameplay : MonoBehaviour {
         bar.BarName = LocationCurrentName;
         CurrentBar = bar;
 
-        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CameraTarget, 0.1f);
+        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CameraTarget, 0.1f / CameraTransitionDuration);
         if (Camera.transform.position != CameraTarget) {
             CameraIsMoving = true;
         }

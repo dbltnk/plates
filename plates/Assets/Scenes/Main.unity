@@ -476,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeCurrent: 0
   EnergyMin: 0
-  EnergyCurrent: 50
+  EnergyCurrent: 100
   EnergyMax: 100
   EnergyRefillPerSecond: 10
   ConnectednessCurrent: 0
@@ -493,6 +493,7 @@ MonoBehaviour:
   CameraTarget: {x: 0, y: 0, z: 0}
   Camera: {fileID: 534669902}
   CameraIsMoving: 0
+  CameraTransitionDuration: 3
 --- !u!4 &378475231
 Transform:
   m_ObjectHideFlags: 0
@@ -786,6 +787,7 @@ GameObject:
   - component: {fileID: 603908466}
   - component: {fileID: 603908465}
   - component: {fileID: 603908464}
+  - component: {fileID: 603908469}
   m_Layer: 0
   m_Name: ButtonTap
   m_TagString: Untagged
@@ -928,6 +930,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 603908462}
   m_CullTransparentMesh: 0
+--- !u!114 &603908469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603908462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ecbb9ed3bdb8d4d9e4b4fb92d135b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &609990691
 GameObject:
   m_ObjectHideFlags: 0
