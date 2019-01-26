@@ -23,6 +23,7 @@ public class Gameplay : MonoBehaviour {
     public Text TextTime;
     public Text TextEnergy;
     public Text TextConnectedness;
+    public Text TextLocation;
 
     public Bar CurrentBar;
 
@@ -66,6 +67,7 @@ public class Gameplay : MonoBehaviour {
         TextTime.text = string.Concat("Time: ", TimeCurrent);
         TextEnergy.text = string.Concat("Energy: ", EnergyCurrent);
         TextConnectedness.text = string.Concat("Connectedness: ", ConnectednessCurrent);
+        TextLocation.text = LocationCurrentName;
 
         // probably very expensive but who cares
         LocationCurrentName = Locations[LocationCurrentID];
