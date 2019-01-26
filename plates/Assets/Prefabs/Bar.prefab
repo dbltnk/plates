@@ -171,9 +171,9 @@ MonoBehaviour:
   Current: 50
   Max: 100
   DecayPerSecond: 0.5
-  GameplayRoot: {fileID: 0}
   HotspotTop: 45
   HotspotBottom: 40
   IsOnHotspot: 0
   ConnectednessPerSecondNormal: 1
   ConnectednessPerSecondHotspot: 5
+  IncreasePerTap: 5
