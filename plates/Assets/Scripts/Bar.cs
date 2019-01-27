@@ -17,7 +17,6 @@ public class Bar : MonoBehaviour {
     public bool IsOnHotspot;
     public float ConnectednessPerSecondNormal;
     public float ConnectednessPerSecondHotspot;
-    public float IncreasePerTap;
     public GameObject ObjectCurrent;
     public GameObject ObjectHotspot;
     public float hotspotRange;
@@ -76,7 +75,7 @@ public class Bar : MonoBehaviour {
     public void IncreaseCurrent() {
         if (gp.EnergyCurrent > gp.EnergyCosts[gp.LocationCurrentID] &&
             gp.MoneyCurrent > gp.MoneyCosts[gp.LocationCurrentID]) {
-            Current += IncreasePerTap;
+            Current += gp.Effects[gp.LocationCurrentID];
             gp.DecreaseEnergy(gp.EnergyCosts[gp.LocationCurrentID]);
             gp.IncreaseMoney(gp.MoneyCosts[gp.LocationCurrentID] * -1);
         }

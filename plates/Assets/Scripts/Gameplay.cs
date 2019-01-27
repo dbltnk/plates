@@ -21,6 +21,7 @@ public class Gameplay : MonoBehaviour {
     public Dictionary<int, float> EnergyCosts = new Dictionary<int, float>();
     public Dictionary<int, float> MoneyCosts = new Dictionary<int, float>();
     public Dictionary<int, string> Actions = new Dictionary<int, string>();
+    public Dictionary<int, float> Effects = new Dictionary<int, float>();
 
     public GameObject PrefabBar;
 
@@ -43,29 +44,34 @@ public class Gameplay : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Locations.Add(0, "Hometown");
-        EnergyCosts.Add(0, 5);
-        MoneyCosts.Add(0, 1000);
-        Actions.Add(0, "Fly");
+        EnergyCosts.Add(0, 95f);
+        MoneyCosts.Add(0, 500f);
+        Actions.Add(0, "Long Stay");
+        Effects.Add(0, 85f);
 
         Locations.Add(1, "Home Country");
-        EnergyCosts.Add(1, 5);
-        MoneyCosts.Add(1, 100);
-        Actions.Add(1, "Visit");
+        EnergyCosts.Add(1, 50f);
+        MoneyCosts.Add(1, 100f);
+        Actions.Add(1, "Weekend Visit");
+        Effects.Add(1, 45f);
 
         Locations.Add(2, "New Home");
-        EnergyCosts.Add(2, 10);
-        MoneyCosts.Add(2, 20);
+        EnergyCosts.Add(2, 10f);
+        MoneyCosts.Add(2, 5f);
         Actions.Add(2, "Call");
+        Effects.Add(2, 5f);
 
         Locations.Add(3, "Work");
-        EnergyCosts.Add(3, 20);
-        MoneyCosts.Add(3, 0);
+        EnergyCosts.Add(3, 20f);
+        MoneyCosts.Add(3, 0f);
         Actions.Add(3, "Work");
+        Effects.Add(3, 10f);
 
         Locations.Add(4, "Socialising");
-        EnergyCosts.Add(4, 25);
-        MoneyCosts.Add(4, 50);
+        EnergyCosts.Add(4, 25f);
+        MoneyCosts.Add(4, 50f);
         Actions.Add(4, "Dance");
+        Effects.Add(4, 20f);
 
         foreach (KeyValuePair<int, string> e in Locations) {
             GameObject o = Instantiate(PrefabBar);
