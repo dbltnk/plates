@@ -7,13 +7,13 @@ public class Bar : MonoBehaviour {
 
     public string BarName;
     public float Min;
-    public float Current;
+    float Current;
     public float Max;
     public float DecayPerSecond;
     GameObject gameplayRoot;
     Gameplay gp;
-    public float HotspotTop;
-    public float HotspotBottom;
+    float HotspotTop;
+    float HotspotBottom;
     public bool IsOnHotspot;
     public float ConnectednessPerSecondNormal;
     public float ConnectednessPerSecondHotspot;
@@ -31,6 +31,9 @@ public class Bar : MonoBehaviour {
     void Start () {
         gameplayRoot = GameObject.Find("GameplayRoot");
         gp = gameplayRoot.GetComponent<Gameplay>();
+        HotspotTop = Random.Range(85f, 100f);
+        HotspotBottom = Random.Range(15f, 35f);
+        Current = HotspotTop - 10f;
     }
 	
 	// Update is called once per frame

@@ -43,33 +43,33 @@ public class Gameplay : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Locations.Add(0, "Hometown");
+        Locations.Add(0, "Parent' Home");
         EnergyCosts.Add(0, 95f);
-        MoneyCosts.Add(0, 500f);
+        MoneyCosts.Add(0, 750f);
         Actions.Add(0, "Long Stay");
         Effects.Add(0, 85f);
 
-        Locations.Add(1, "Home Country");
+        Locations.Add(1, "Home Town");
         EnergyCosts.Add(1, 50f);
-        MoneyCosts.Add(1, 100f);
+        MoneyCosts.Add(1, 200f);
         Actions.Add(1, "Weekend Visit");
         Effects.Add(1, 45f);
 
         Locations.Add(2, "New Home");
         EnergyCosts.Add(2, 10f);
         MoneyCosts.Add(2, 5f);
-        Actions.Add(2, "Call");
+        Actions.Add(2, "Call BFF");
         Effects.Add(2, 5f);
 
-        Locations.Add(3, "Work");
+        Locations.Add(3, "Office");
         EnergyCosts.Add(3, 20f);
         MoneyCosts.Add(3, 0f);
-        Actions.Add(3, "Work");
-        Effects.Add(3, 10f);
+        Actions.Add(3, "Chat");
+        Effects.Add(3, 8f);
 
-        Locations.Add(4, "Socialising");
+        Locations.Add(4, "The Club");
         EnergyCosts.Add(4, 25f);
-        MoneyCosts.Add(4, 50f);
+        MoneyCosts.Add(4, 75f);
         Actions.Add(4, "Dance");
         Effects.Add(4, 20f);
 
@@ -123,7 +123,7 @@ public class Gameplay : MonoBehaviour {
         ConnectednessCurrent -= ConnectednessDecayPerSecond * Time.deltaTime;
         ConnectednessCurrent = Mathf.Max(ConnectednessCurrent, 0);
 
-        if (LocationCurrentID == 3) {
+        if (LocationCurrentID == 3 && CameraIsMoving == false) {
             MoneyCurrent += MoneyGainPerSecond * Time.deltaTime;
         };
     }
